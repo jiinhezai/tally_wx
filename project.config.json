@@ -27,14 +27,23 @@
     "enhance": true,
     "minified": true,
     "uglifyFileName": true,
-    "condition": false
+    "condition": false,
+    "postcss": false,
+    "compileWorklet": false,
+    "uploadWithSourceMap": true,
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "swc": false,
+    "disableSWC": true
   },
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {},
   "srcMiniprogramRoot": "miniprogram/",
-  "appid": "wx157991690646767a",
-  "libVersion": "2.31.0",
+  "appid": "wx4737f60d2731fb39",
+  "libVersion": "2.30.4",
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2

@@ -1,48 +1,61 @@
-<view class="page-gradient">
-  <van-icon bindtap="toHistory" class="my-icon" name="bars" size="25px" info="" />
-  <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="setHead">
-    <div class="avatar-wrapper">
-      <image class="avatar" src="{{headUrl}}" mode="aspectFill"></image>
-      <!-- <image class="upload" src="/images/set.png"></image> -->
-    </div>
-  </button>
-
-  <view class="container">
-    <view class="input-container">
-      <input class="input" placeholder="请输入用户名" type="nickname" value="{{userName}}" bindblur="setName" />
+<view class="page-container">
+  <view class="header">
+    <text class="title">记账大厅</text>
+    <view class="history-btn" bindtap="toHistory">
+      <van-icon name="clock-o" size="18px" custom-style="margin-right: 4px;" />
+      <text>历史对局</text>
     </view>
-    <!-- <view class="icon-container">
-      <image class="icon" src="/images/set.png"></image>
-    </view> -->
   </view>
 
-  <van-divider contentPosition="center">建议使用微信头像和昵称</van-divider>
-
-
-  <view class="submit-button-container">
-    <van-row gutter="50">
-      <van-col span="12">
-        <van-button custom-class="submit-button" type="primary" bind:click="putRoom">{{usagesRoom?'继续对局':'创建房间'}}
-        </van-button>
-      </van-col>
-      <van-col span="12">
-        <!-- <button bindtap="openCamera">打开摄像头</button> -->
-        <van-button plain custom-class="submit-button" 
-         type="primary" bind:click="openCamera">扫码进房
-        </van-button>
-      </van-col>
-    </van-row>
-   
+  <view class="profile-card">
+    <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="setHead">
+      <image class="avatar" src="{{headUrl || '/images/wx.png'}}" mode="aspectFill"></image>
+      <view class="camera-badge">
+        <van-icon name="photograph" color="#fff" size="14px" />
+      </view>
+    </button>
     
+    <view class="nickname-box">
+      <input class="nickname-input" placeholder="点击输入您的昵称" type="nickname" value="{{userName}}" bindblur="setName" />
+      <van-icon name="edit" color="#c8c9cc" size="18px" custom-style="margin-left: 8px;" />
+    </view>
+    
+    <view class="tips">完善个人信息，让牌友一眼认出你</view>
   </view>
- 
-  <van-divider wx:if="{{usagesRoom}}" contentPosition="center">如果要创建房间,请先进入原房间结束对局
-  </van-divider>
 
+  <view class="action-section">
+    <van-button 
+      custom-class="action-btn main-btn" 
+      color="linear-gradient(to right, #4facfe 0%, #00f2fe 100%)"
+      size="large" 
+      round 
+      block 
+      icon="{{usagesRoom ? 'play-circle-o' : 'add-o'}}"
+      bind:click="putRoom"
+    >
+      {{usagesRoom ? '继续当前对局' : '创建新房间'}}
+    </van-button>
 
+    <van-button 
+      custom-class="action-btn scan-btn" 
+      plain 
+      type="info" 
+      size="large" 
+      round 
+      block 
+      icon="scan"
+      bind:click="openCamera"
+    >
+      扫码加入房间
+    </van-button>
+  </view>
+
+  <view class="footer-notice" wx:if="{{usagesRoom}}">
+    <van-icon name="warning-o" color="#ee0a24" custom-style="margin-right:4px;"/>
+    <text>提示：如需创建新房间，请先进入原房间结束对局</text>
+  </view>
 </view>
 
 <van-toast id="van-toast" />
 <van-dialog id="van-dialog" />
-
 <version/>

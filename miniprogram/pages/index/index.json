@@ -1,6 +1,9 @@
 {
   "usingComponents": {
-    "van-divider": "@vant/weapp/divider/index",
-    "version":"/components/version/index"
+    "van-icon": "@vant/weapp/icon/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "version": "/components/version/index"
   }
 }

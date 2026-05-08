@@ -1,8 +1,8 @@
 
 // export const roomWebsocket = "wss://api.xtyu.top/v2/websocket/room/";
 export const apiKey = "ea18e92a774746c1a5dea4e7fbb0230c";
-const host = "http://127.0.0.1:8080/v1/api/";
-export const roomWebsocket = "ws://127.0.0.1:8080/topic/v1/websocket/room/";
+const host = "http://47.95.238.236:8080/v1/api/";
+export const roomWebsocket = "ws://47.95.238.236:8080/topic/v1/websocket/room/";
 
 
 export function post(url: string, data: any = {}, loading: boolean = true): Promise<any> {
